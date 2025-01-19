@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<form method="get">
+    {{ form.status.label_tag }}
+    {{ form.status }}
+    <button type="submit">Filter</button>
+</form>
+
+
+{% for task in tasks %}
+
+</br>
+<a href="{% url 'task-detail' task.pk %}">{{ task.title }}</a>
+</br>
+<span>{{ task.status }}</span>
+<span>{{ task.priority }}</span>
+
+{% empty %}
+<span>No Task</span>
+
+{% endfor %}
